@@ -9,26 +9,51 @@ import java.io.FileReader;
 public class ParseNetlist {
 
     private String pathToNetllist;
-
+    private String netName;
+    private String pinName;
 
     public void setPathToNetllist(String pathToNetllist) {
         this.pathToNetllist = pathToNetllist;
-        readTextFileLineByLine(pathToNetllist);
+
 
     }
 
-    public void readTextFileLineByLine(String file){
+    public void convertNetlist(String Designator) {
+        readTextFileLineByLine(pathToNetllist, Designator);
+    }
 
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+    public void readTextFileLineByLine(String filePath, String Designator) {
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
-                // process the line.
-            }
-        }
-catch (Exception e){
 
-}
+               // System.out.println(line);
+                // process the line.
+
+
+                int first = line.indexOf("'");
+                int secondOccurence = line.indexOf("'", first + 1);
+
+                int first2 = line.indexOf("/");
+                int secondOccurence2 = line.indexOf("/", first2 + 1);
+
+
+                int designatorIndex = line.indexOf(Designator);
+                if (secondOccurence2 != -1 && designatorIndex != -1) {
+                    netName = line.substring(secondOccurence2 + 1, secondOccurence + 1);
+                    netName=netName.substring(0, netName.length() - 1); ///remove last char (the ' sign)
+                    pinName = line.substring(designatorIndex).split("-")[1];
+                  //set_location_assignment PIN_F17 -to LEDG[8]
+                    System.out.println("set_location_assignment PIN_"+pinName+" -to "+netName);
+
+
+                }
+
+            }
+        } catch (Exception e) {
+
+        }
 
     }
 }

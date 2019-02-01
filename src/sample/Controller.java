@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -12,7 +13,13 @@ public class Controller {
     Button browseBtn;
 
     @FXML
+    Button convertBtn;
+
+    @FXML
     Label pathLabel;
+
+    @FXML
+    TextField designatorNumberInput;
 
 
     ParseNetlist parseNetlist;
@@ -25,7 +32,7 @@ public class Controller {
     }
 
 
-    public void btnPressed(){
+    public void browseBtnPressed(){
 
         System.out.println("btn pressed");
         FileChooser fileChooser = new FileChooser();
@@ -43,6 +50,8 @@ pathLabel.setText(selectedFile.toString());
         }
     }
 
-
+public void convertBtnPressed(){
+    parseNetlist.convertNetlist(designatorNumberInput.getText()); //send designator string to convertNetlist method
+}
 
 }

@@ -9,7 +9,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button fx:id="browseBtn" layoutX="97.0" layoutY="144.0" mnemonicParsing="false" onAction="#btnPressed" prefHeight="27.0" prefWidth="111.0" text="Browse" />
+      <Button fx:id="browseBtn" layoutX="165.0" layoutY="144.0" mnemonicParsing="false" onAction="#browseBtnPressed" prefHeight="27.0" prefWidth="111.0" text="Browse" />
       <Pane layoutX="289.0" layoutY="31.0" prefHeight="140.0" prefWidth="120.0" style="-fx-border-color: BLACK;">
          <children>
             <RadioButton fx:id="vhdlRadioBTN" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="VHDL TOP" />
@@ -26,5 +26,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <Button fx:id="convertBtn" layoutX="35.0" layoutY="144.0" mnemonicParsing="false" onAction="#convertBtnPressed" prefHeight="27.0" prefWidth="111.0" text="Convert" />
    </children>
 </Pane>
