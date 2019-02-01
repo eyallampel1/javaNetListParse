@@ -51,7 +51,7 @@ pathLabel.setText(selectedFile.toString());
     }
 
 public void convertBtnPressed(){
-    parseNetlist.convertNetlist(designatorNumberInput.getText()); //send designator string to convertNetlist method
+    parseNetlist.convertNetlist(designatorNumberInput.getText().toUpperCase()); //send designator string to convertNetlist method
 }
 
 }

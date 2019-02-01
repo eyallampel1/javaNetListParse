@@ -26,7 +26,7 @@ public class ParseNetlist {
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
-            while ((line = br.readLine()) != null) {
+           while ((line = br.readLine()) != null) {
 
                // System.out.println(line);
                 // process the line.
@@ -39,8 +39,8 @@ public class ParseNetlist {
                 int secondOccurence2 = line.indexOf("/", first2 + 1);
 
 
-                int designatorIndex = line.indexOf(Designator);
-                if (secondOccurence2 != -1 && designatorIndex != -1) {
+                int designatorIndex = line.indexOf(Designator+"-");
+                if (designatorIndex != -1 && (line.length()-designatorIndex>2)) {//FOR SPECIAL CASE WHERE PIN_NAME = DESIGNATOR NAME
                     netName = line.substring(secondOccurence2 + 1, secondOccurence + 1);
                     netName=netName.substring(0, netName.length() - 1); ///remove last char (the ' sign)
                     pinName = line.substring(designatorIndex).split("-")[1];
