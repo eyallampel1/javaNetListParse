@@ -25,8 +25,8 @@ public class ParseNetlist {
     public void readTextFileLineByLine(String filePath, String Designator) {
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-           while ((line = br.readLine()) != null) {
+             String line;
+            while (((line = br.readLine()) != null) && (!line.equals("# begin one pin nets list"))) {
 
                // System.out.println(line);
                 // process the line.
