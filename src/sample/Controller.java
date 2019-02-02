@@ -25,33 +25,32 @@ public class Controller {
     ParseNetlist parseNetlist;
 
 
-    public void initialize(){
+    public void initialize() {
         pathLabel.setVisible(false);
-        parseNetlist=new ParseNetlist();
+        parseNetlist = new ParseNetlist();
         System.out.println("initialize");
     }
 
 
-    public void browseBtnPressed(){
+    public void browseBtnPressed() {
 
         System.out.println("btn pressed");
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(null);
 
         if (selectedFile != null) {
-pathLabel.setVisible(true);
-pathLabel.setText(selectedFile.toString());
-        //path to text file
+            pathLabel.setVisible(true);
+            pathLabel.setText(selectedFile.toString());
+            //path to text file
             parseNetlist.setPathToNetllist(selectedFile.getPath());
             //     actionStatus.setText("File selected: " + selectedFile.getName());
-        }
-        else {
-         //   actionStatus.setText("File selection cancelled.");
+        } else {
+            //   actionStatus.setText("File selection cancelled.");
         }
     }
 
-public void convertBtnPressed(){
-    parseNetlist.convertNetlist(designatorNumberInput.getText().toUpperCase()); //send designator string to convertNetlist method
-}
+    public void convertBtnPressed() {
+        parseNetlist.convertNetlist(designatorNumberInput.getText().toUpperCase()); //send designator string to convertNetlist method
+    }
 
 }
