@@ -49,7 +49,7 @@ public class ParseNetlist {
                     netName = line.substring(secondOccurence2 + 1, secondOccurence + 1);
                     netName = netName.substring(0, netName.length() - 1); ///remove last char (the ' sign)
                     pinName = line.substring(designatorIndex).split("-")[1];
-<<<<<<< HEAD
+
                   //set_location_assignment PIN_F17 -to LEDG[8]
                    // writeTextFile(netName,pinName);
                     if (firstTimeInWhileLOOP) {
@@ -58,10 +58,10 @@ public class ParseNetlist {
                     }
                     writer.println("set_location_assignment PIN_"+pinName+" -to "+netName);
 
-=======
+
                     //set_location_assignment PIN_F17 -to LEDG[8]
                     System.out.println("set_location_assignment PIN_" + pinName + " -to " + netName);
->>>>>>> 3516b6b672671bb4a10bd8afa8f92b33baab3f92
+
 
                     //altera
                     System.out.println("set_location_assignment PIN_"+pinName+" -to "+netName);
